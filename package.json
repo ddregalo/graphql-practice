@@ -1,0 +1,33 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "GraphQL practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon ./index.js --exec babel-node -e js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddregalo/graphql-practice.git"
+  },
+  "keywords": [
+    "graphql"
+  ],
+  "author": "daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ddregalo/graphql-practice/issues"
+  },
+  "homepage": "https://github.com/ddregalo/graphql-practice#readme",
+  "dependencies": {
+    "eslint": "^5.7.0",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
