@@ -13,6 +13,6 @@ const schema = buildSchema(`
     type Query {
         artist: Artist
     }
-`)
+`);
 
 export default schema;
