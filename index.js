@@ -9,7 +9,14 @@ app.get('/', (req, res) => {
 });
 
 const root = {
-    hello: () => "Wasssaaaaawwww"
+    artist: () => {
+        return {
+            "id": 12345678,
+            "firstName": "Jean Michel",
+            "lastName": "Basquiat",
+            "website": "http://basquiat.com/"
+        } 
+    }
 };
 
 app.use('/graphql', graphqlHTTP({
