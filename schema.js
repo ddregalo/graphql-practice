@@ -5,9 +5,15 @@ import { buildSchema } from 'graphql';
 const schema = buildSchema(`
     type Artist {
         id: ID
-        firstName: String
+        firstName: String!
         lastName: String
         website: String
+        artworks: [artwork]
+    }
+
+    type artwork {
+        title: String
+        year: Int
     }
 
     type Query {

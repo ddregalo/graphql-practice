@@ -14,10 +14,20 @@ const root = {
             "id": 12345678,
             "firstName": "Jean Michel",
             "lastName": "Basquiat",
-            "website": "http://basquiat.com/"
-        } 
+            "website": "http://basquiat.com/",
+            "artworks": [
+                {
+                    "title": "Self Portrait I",
+                    "year": 1980 
+                },
+                {
+                    "title": "Untitled IV",
+                    "year": 1982 
+                }
+            ]
+        }; 
     }
-};
+}; 
 
 app.use('/graphql', graphqlHTTP({
     schema: schema,
