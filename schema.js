@@ -8,12 +8,19 @@ const schema = buildSchema(`
         firstName: String!
         lastName: String
         website: String
-        artworks: [artwork]
+        artwork: String
     }
 
-    type artwork {
-        title: String
-        year: Int
+    input ArtistInput {
+        id: ID
+        firstName: String!
+        lastName: String!
+        website: String!
+        artwork: String
+    }
+
+    type Mutation {
+        createArtist(input: ArtistInput): Artist
     }
 
     type Query {

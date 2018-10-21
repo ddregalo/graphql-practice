@@ -8,6 +8,18 @@ app.get('/', (req, res) => {
     res.send("GraphQL Testing 1-2 1-2 ");
 });
 
+class Artist {
+    constructor(id, {firstName, lastName, website, artwork}) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.website = website;
+        this.artwork = artwork;
+    };
+}
+
+const artistDatabase = {};
+
 const root = {
     artist: () => {
         return {
@@ -15,17 +27,13 @@ const root = {
             "firstName": "Jean Michel",
             "lastName": "Basquiat",
             "website": "http://basquiat.com/",
-            "artworks": [
-                {
-                    "title": "Self Portrait I",
-                    "year": 1980 
-                },
-                {
-                    "title": "Untitled IV",
-                    "year": 1982 
-                }
-            ]
+            "artwork": "Self Portrait I"
         }; 
+    },
+    createArtist: ({input}) => {
+        let id = require('crypto').randomBytes(10).toString('hex');
+        artistDatabase[id] = input;
+        return new Artist(id, input);
     }
 }; 
 
