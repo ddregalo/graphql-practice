@@ -24,7 +24,7 @@ const schema = buildSchema(`
     }
 
     type Query {
-        artist: Artist
+        getArtist(id: ID): Artist
     }
 `);
 
