@@ -1,10 +1,11 @@
 class Artist {
-    constructor(id, {firstName, lastName, website, artwork}) {
+    constructor(id, {firstName, lastName, website, artwork, isAlive}) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.website = website;
         this.artwork = artwork;
+        this.isAlive = isAlive;
     }
 }
 

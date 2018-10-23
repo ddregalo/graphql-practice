@@ -9,6 +9,7 @@ const schema = buildSchema(`
         lastName: String
         website: String
         artwork: String
+        isAlive: Boolean
     }
 
     input ArtistInput {
@@ -17,6 +18,7 @@ const schema = buildSchema(`
         lastName: String!
         website: String!
         artwork: String
+        isAlive: Boolean
     }
 
     type Mutation {
