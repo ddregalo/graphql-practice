@@ -15,7 +15,7 @@ const schema = buildSchema(`
         lastName: String
         gender: Gender
         website: String
-        artwork: String
+        styles: [Style]
         isAlive: Boolean
     }
 
@@ -25,8 +25,16 @@ const schema = buildSchema(`
         lastName: String!
         gender: Gender
         website: String!
-        artwork: String
+        styles: [StyleInput]
         isAlive: Boolean
+    }
+
+    type Style {
+        name: String
+    }
+
+    input StyleInput {
+        name: String
     }
 
     type Mutation {
