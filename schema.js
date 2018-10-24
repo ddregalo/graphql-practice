@@ -1,4 +1,4 @@
-import { resolvers } from 'resolvers';
+import { resolvers } from './resolvers';
 import { makeExecutableSchema } from 'graphql-tools';
 
 // ! means non-nullable field
@@ -38,12 +38,12 @@ const typeDefs = `
         name: String
     }
 
-    type Mutation {
-        createArtist(input: ArtistInput): Artist
-    }
-
     type Query {
         getArtist(id: ID): Artist
+    }
+
+    type Mutation {
+        createArtist(input: ArtistInput): Artist
     }
 `;
 
