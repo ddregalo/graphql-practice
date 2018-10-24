@@ -12,15 +12,18 @@ class Artist {
 
 const artistDatabase = {};
 
-const resolvers = {
-    getArtist: ({id}) => {
-        return new Artist(id, artistDatabase[id]);
+// resolver map
+export const resolvers = {
+    Query: {
+        getArtist: ({id}) => {
+            return new Artist(id, artistDatabase[id]);
+        },
     },
-    createArtist: ({input}) => {
-        let id = require('crypto').randomBytes(10).toString('hex');
-        artistDatabase[id] = input;
-        return new Artist(id, input);
+    Mutation: {
+        createArtist: ({input}) => {
+            let id = require('crypto').randomBytes(10).toString('hex');
+            artistDatabase[id] = input;
+            return new Artist(id, input);
+        }
     }
 };
-
-export default resolvers; 

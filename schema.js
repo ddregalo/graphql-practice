@@ -1,8 +1,9 @@
-import { buildSchema } from 'graphql';
+import { resolvers } from 'resolvers';
+import { makeExecutableSchema } from 'graphql-tools';
 
 // ! means non-nullable field
 
-const schema = buildSchema(`
+const typeDefs = `
     enum Gender {
         MALE
         FEMALE
@@ -44,6 +45,8 @@ const schema = buildSchema(`
     type Query {
         getArtist(id: ID): Artist
     }
-`);
+`;
 
-export default schema;
+const schema = makeExecutableSchema({typeDefs, resolvers});
+
+export { schema };
