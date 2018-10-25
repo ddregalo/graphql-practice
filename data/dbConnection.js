@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import sequelize from 'sequelize';
+import _ from 'lodash';
+import casual from 'casual';
 
 mongoose.Promise = global.Promise;
 
@@ -29,4 +32,27 @@ const artistSchema = new mongoose.Schema({
 
 const Artists = mongoose.model('artists', artistSchema);
 
-export {Artists}; 
+// SQL
+
+const Sequelize = new sequelize('database', null, null, {
+    dialect: 'sqlite3',
+    storage: './aliens.sqlite'
+});
+
+const Aliens = sequelize.define('artits', {
+    firstName: {type: sequelize.STRING},
+    lasttName: {type: sequelize.STRING},
+    planet: {type: sequelize.STRING}
+});
+
+Aliens.sync({force: true}).then(() => {
+    _.times(10, (i) => {
+        Aliens.create({
+            firstName: casual._first_name,
+            lastName: casual._last_name,
+            planet: casual.word
+        });
+    });
+});
+
+export {Artists, Aliens}; 

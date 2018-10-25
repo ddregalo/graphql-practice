@@ -4,6 +4,14 @@ import { makeExecutableSchema } from 'graphql-tools';
 // ! means non-nullable field
 
 const typeDefs = `
+    
+    type Alien {
+        id: ID
+        firstName: String
+        lastName: String
+        planet: String
+    }
+
     enum Gender {
         MALE
         FEMALE
