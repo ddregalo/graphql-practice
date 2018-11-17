@@ -28,8 +28,6 @@ export const resolvers = {
                     else resolve(newArtist)
                 });
              });
-
-
         }
     }
 };
