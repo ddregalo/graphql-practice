@@ -53,6 +53,7 @@ const typeDefs = `
     type Mutation {
         createArtist(input: ArtistInput): Artist
         updateArtist(input: ArtistInput): Artist
+        deleteArtist(id: ID!): String
     }
 `;
 

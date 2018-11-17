@@ -37,6 +37,15 @@ export const resolvers = {
                     else resolve(artist)
                 })
             })
+        },
+
+        deleteArtist: (root, {id}) => {
+            return new Promise((resolve, object) => {
+                Artists.remove({_id: id}, (err) => {
+                    if (err) reject(err)
+                    else resolve("Artist was deleted successfully.")
+                })
+            })
         }
     }
 };
