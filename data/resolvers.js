@@ -28,6 +28,15 @@ export const resolvers = {
                     else resolve(newArtist)
                 });
              });
+        },
+
+        updateArtist: (root, {input}) => {
+            return new Promise((resolve, object) => {
+                Artists.findOneAndUpdate({_id: input.id}, input, {new: true}, (err, artist) => {
+                    if (err) reject(err)
+                    else resolve(artist)
+                })
+            })
         }
     }
 };
