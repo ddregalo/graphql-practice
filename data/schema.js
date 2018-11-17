@@ -48,6 +48,7 @@ const typeDefs = `
 
     type Query {
         getArtist(id: ID): Artist
+        getAliens: [Alien]
     }
 
     type Mutation {

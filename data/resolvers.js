@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Artists } from './dbConnection';
+import { Artists, Aliens } from './dbConnection';
 import { resolve } from 'dns';
 
 // resolver map
@@ -8,6 +8,9 @@ export const resolvers = {
         getArtist: ({id}) => {
             return new Artist(id, artistDatabase[id]);
         },
+        getAliens: () => {
+            return Aliens.findAll();
+        }
     },
     Mutation: {
         createArtist: (root, {input}) => {
