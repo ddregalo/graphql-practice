@@ -47,7 +47,7 @@ const typeDefs = `
     }
 
     type Query {
-        getArtist(id: ID): Artist
+        getArtist(id: ID!): Artist
         getAliens: [Alien]
     }
 
