@@ -43,7 +43,7 @@ const sequelize = new Sequelize('database', null, null, {
 
 const Aliens = sequelize.define('aliens', {
     firstName: Sequelize.STRING,
-    lasttName: Sequelize.STRING,
+    lastName: Sequelize.STRING,
     planet: Sequelize.STRING
 });
 
