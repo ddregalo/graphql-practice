@@ -5,8 +5,13 @@ import { resolve } from 'dns';
 // resolver map
 export const resolvers = {
     Query: {
-        getArtist: ({id}) => {
-            return new Artist(id, artistDatabase[id]);
+        getArtist: (root, {id}) => {
+            return new Promise((resolve, object) => {
+                Artists.findById(id, (err, artist) => {
+                    if (err) reject(err)
+                    else resolve(artist)
+                });
+            })
         },
         getAliens: () => {
             return Aliens.findAll();
