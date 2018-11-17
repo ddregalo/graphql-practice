@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
-import sequelize from 'sequelize';
+import Sequelize from 'sequelize';
 import _ from 'lodash';
 import casual from 'casual';
 
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb://localhost/artists', {
-    useMongoClient: true
+    // useMongoClient: true
 });
 
 const artistSchema = new mongoose.Schema({
@@ -34,24 +34,24 @@ const Artists = mongoose.model('artists', artistSchema);
 
 // SQL
 
-const Sequelize = new sequelize('database', null, null, {
-    dialect: 'sqlite3',
-    storage: './aliens.sqlite'
+const sequelize = new Sequelize('database', null, null, {
+    host: 'localhost',
+    dialect: 'sqlite',
+    storage: './aliens.sqlite',
+    operatorsAliases: false
 });
 
-const Aliens = sequelize.define('artits', {
-    firstName: {type: sequelize.STRING},
-    lasttName: {type: sequelize.STRING},
-    planet: {type: sequelize.STRING}
+const Aliens = sequelize.define('aliens', {
+    firstName: Sequelize.STRING,
+    lasttName: Sequelize.STRING,
+    planet: Sequelize.STRING
 });
 
-Aliens.sync({force: true}).then(() => {
-    _.times(10, (i) => {
-        Aliens.create({
-            firstName: casual._first_name,
-            lastName: casual._last_name,
-            planet: casual.word
-        });
+sequelize.sync({force: true}).then(() => {
+    Aliens.create({
+        firstName: 'Jon',
+        lastName: 'James',
+        planet: 'LooseCanonPlayaz'
     });
 });
 
